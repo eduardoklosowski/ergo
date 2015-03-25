@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+
+build/
+dist/
+*.egg-info/
+*.egg
+
+/db.sqlite3
+/ergo/settings/dev.py
