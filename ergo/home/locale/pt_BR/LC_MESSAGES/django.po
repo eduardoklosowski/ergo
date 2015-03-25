@@ -1,0 +1,46 @@
+# This file is distributed under the same license as the ergo package.
+#
+# Translators:
+# Eduardo Augusto Klosowski <eduardo_klosowski@yahoo.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ergo\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-24 16:37-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Eduardo Augusto Klosowski <eduardo_klosowski@yahoo.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: apps.py:11
+msgid "Ergo Home"
+msgstr ""
+
+#: apps.py:13
+msgid "Home"
+msgstr ""
+
+#: templates/ergohome/base.html:20
+msgid "Back"
+msgstr "Voltar"
+
+#: templates/ergohome/base.html:34
+msgid "Administration"
+msgstr "Administração"
+
+#: templates/ergohome/base.html:35
+msgid "Logout"
+msgstr "Sair"
+
+#: templates/ergohome/base.html:44
+msgid "Applications"
+msgstr "Aplicativos"
+
+#: templates/ergohome/login.html:6 templates/ergohome/login.html.py:26
+msgid "Login"
+msgstr "Entrar"

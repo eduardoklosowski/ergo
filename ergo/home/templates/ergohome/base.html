@@ -1,0 +1,68 @@
+{% extends 'foundation/base.html' %}
+{% load ergohome %}
+{% load i18n %}
+{% load staticfiles %}
+
+
+{% block title %}{% ergohome_title %}{% endblock %}
+
+{% block css %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'ergohome/css/app.css' %}">
+{% endblock %}
+
+{% block header-ext %}{% ergohome_icon %}{% endblock %}
+
+
+
+{% block body %}
+  <div class="fixed">
+    <nav class="top-bar" data-topbar role="navigation" data-options="back_text:{% trans 'Back' %}">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="{% url 'ergohome:app_list' %}">{% ergohome_title %}</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="right">
+          <li class="divider"></li>
+          {% block top-bar-right %}
+            <li class="has-dropdown">
+              <a href="#">{{ user.get_full_name|default:user.username }}</a>
+              <ul class="dropdown">
+                {% if user.is_staff %}<li><a href="{% url 'admin:index' %}" target="_blank">{% trans 'Administration' %}</a></li>{% endif %}
+                <li><a href="{% url 'logout' %}">{% trans 'Logout' %}</a></li>
+              </ul>
+            </li>
+          {% endblock %}
+        </ul>
+        <ul class="left">
+          <li class="divider"></li>
+          {% block top-bar-left %}
+            <li class="has-dropdown">
+              <a href="{% url 'ergohome:app_list' %}">{% trans 'Applications' %}</a>
+              <ul class="dropdown">
+                {% ergohome_applist %}
+              </ul>
+            </li>
+          {% endblock %}
+        </ul>
+      </section>
+    </nav>
+  </div>
+  {% block messages %}
+    {% if messages %}
+      <section role="alert">
+        <div class="row">
+          <div class="small-12 columns">
+            {% for message in messages %}
+              <div class="alert-box info" data-alert>{{ message }}<a class="close">x</a></div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    {% endif %}
+  {% endblock %}
+  {% block content %}{% endblock %}
+{% endblock %}

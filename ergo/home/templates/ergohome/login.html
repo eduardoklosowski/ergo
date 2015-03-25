@@ -1,0 +1,31 @@
+{% extends 'ergohome/base.html' %}
+{% load foundation %}
+{% load i18n %}
+
+
+{% block title %}{{ block.super }} {% trans 'Login' %}{% endblock %}
+
+{% block top-bar-left %}{% endblock %}
+{% block top-bar-right %}{% endblock %}
+
+
+{% block content %}
+  <section class="content" role="application">
+    <form method="post">
+      {% csrf_token %}
+      {% foundation_form_hiddens form %}
+      {% foundation_form_errors form %}
+      <div class="row">
+        <div class="small-12 columns">{% foundation_form_field form.username %}</div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns">{% foundation_form_field form.password %}</div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns text-right">
+          <button type="submit">{% trans 'Login' %}</button>
+        </div>
+      </div>
+    </form>
+  </section>
+{% endblock %}

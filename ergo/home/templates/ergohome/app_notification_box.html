@@ -1,0 +1,7 @@
+<ul class="app-notification">
+  <li>
+    <a href="{{ notification.url }}">{{ notification.title }}</a>
+    {% if notification.count != None %}<small class="label round right">{{ notification.count }}</small>{% endif %}
+  </li>
+  {% if notification.text %}<li>{{ notification.text }}</li>{% endif %}
+</ul>

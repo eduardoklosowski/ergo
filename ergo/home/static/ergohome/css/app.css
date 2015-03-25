@@ -1,0 +1,35 @@
+/* Default style */
+
+.content {
+  padding: 1rem;
+}
+
+.errorlist {
+  margin-bottom: 0;
+}
+
+.width-full {
+  width: 100%;
+}
+
+
+/* Elements style */
+
+.app-notification {
+  background-color: #e0e0e0;
+  margin-left: 0;
+}
+
+.app-notification > li {
+  max-height: 15rem;
+  padding: 0.25rem;
+  overflow: auto;
+}
+
+.app-notification > li:first-child {
+  background-color: #333333;
+}
+
+.app-notification > li:first-child a {
+  color: #ffffff;
+}
