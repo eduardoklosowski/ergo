@@ -8,3 +8,4 @@ dist/
 
 /db.sqlite3
 /ergo/settings/dev.py
+/media/
