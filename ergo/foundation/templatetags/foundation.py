@@ -21,6 +21,11 @@ def foundation_css_normalize():
 
 
 @register.simple_tag
+def foundation_form_column_class(field):
+    return field.form.foundation_column_class(field.name)
+
+
+@register.simple_tag
 def foundation_form_errors(form):
     erros = form.non_field_errors()
     if erros:

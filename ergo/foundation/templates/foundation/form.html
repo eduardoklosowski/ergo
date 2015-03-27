@@ -4,7 +4,7 @@
 {% foundation_form_errors form %}
 <div class="row">
   {% for field in form.visible_fields %}
-    <div class="small-12 medium-6 columns">
+    <div class="{% foundation_form_column_class field %}">
       {% foundation_form_field field %}
     </div>
   {% endfor %}
