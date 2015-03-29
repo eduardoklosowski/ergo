@@ -1,0 +1,20 @@
+{% load foundation %}
+
+<table class="{{ table.get_table_class }}">
+  <thead>
+    <tr>
+      {% for header in table.get_headers %}
+        <th class="{{ header.class }}">{{ header.name }}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in table.get_rows %}
+      <tr>
+        {% for column in row %}
+          <td class="{{ column.class }}">{{ column.value }}</td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
