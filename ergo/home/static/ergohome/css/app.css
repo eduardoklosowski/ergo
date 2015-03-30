@@ -1,5 +1,9 @@
 /* Default style */
 
+select {
+  -moz-appearance: none;
+}
+
 .content {
   padding: 1rem;
 }
