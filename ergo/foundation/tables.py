@@ -3,8 +3,10 @@
 from __future__ import unicode_literals
 
 from django.template.loader import get_template
+from django.utils.encoding import python_2_unicode_compatible
 
 
+@python_2_unicode_compatible
 class Table(object):
     def __init__(self, **kwargs):
         for k, v in kwargs.items():
