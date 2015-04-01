@@ -28,6 +28,10 @@ class Table(object):
     def get_rows(self):
         rows = []
         for row in self.data:
+            if hasattr(self, 'data_extra'):
+                data = (row, self.data_extra)
+            else:
+                data = (row,)
             rows.append([{'class': ('%s %s' % (column.get('row_class', ''), column.get('class', ''))).strip(),
-                          'value': column['value'](row)} for column in self.columns])
+                          'value': column['value'](*data)} for column in self.columns])
         return rows
