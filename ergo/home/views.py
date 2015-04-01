@@ -18,6 +18,6 @@ def app_list(request):
         for notification in app.ergo_notifications(request):
             apps_notifications.append(notification)
 
-    return render(request, 'ergohome/pag_app_list.html', {
+    return render(request, 'ergohome/app_list.html', {
         'apps_notifications': apps_notifications,
     })
