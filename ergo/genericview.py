@@ -16,7 +16,15 @@ class DeleteView(View):
         if request.GET.get('confirm', '') == 'y':
             obj.delete()
             messages.add_message(request, messages.INFO, self.message_deleted % {'title': self.title(obj)})
-            return redirect(self.redirect)
+            if hasattr(self, 'redirect_args'):
+                args = self.redirect_args(request, pk)
+            else:
+                args = []
+            if hasattr(self, 'redirect_kwargs'):
+                kwargs = self.redirect_kwargs(request, pk)
+            else:
+                kwargs = {}
+            return redirect(self.redirect, *args, **kwargs)
         return render(request, 'ergohome/pag_delete.html', {
             'template': self.template,
             'title': self.message % {'title': self.title(obj)},
