@@ -13,7 +13,7 @@ setup(
     version=version,
     packages=find_packages(),
 
-    install_requires=['Django>=1.8c1'],
+    install_requires=['Django>=1.8,<1.9'],
 
     author='Eduardo Augusto Klosowski',
     author_email='eduardo_klosowski@yahoo.com',
