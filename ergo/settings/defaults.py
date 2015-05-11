@@ -22,8 +22,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djangobower',
     'ergo.foundation',
     'ergo.home',
+    'ergo.jquery',
+    'ergo.modernizr',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -53,6 +56,12 @@ TEMPLATES = [
     },
 ]
 
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'djangobower.finders.BowerFinder',
+]
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -75,3 +84,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
+
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'components')
+BOWER_INSTALLED_APPS = (
+    'foundation',
+)

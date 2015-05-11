@@ -7,17 +7,26 @@ from django import template
 from django.contrib.staticfiles.templatetags.staticfiles import static
 
 
+include_css = '<link rel="stylesheet" href="%s">'
+include_js = '<script src="%s"></script>'
 register = template.Library()
 
 
 @register.simple_tag
-def foundation_css():
-    return '<link rel="stylesheet" href="%s">' % static('foundation/css/foundation.css')
+def foundation_viewport():
+    return '<meta name="viewport" contenet="width=device-width, initial-scale=1.0">'
 
 
 @register.simple_tag
-def foundation_css_normalize():
-    return '<link rel="stylesheet" href="%s">' % static('foundation/css/normalize.css')
+def foundation_css():
+    return (include_css % static('foundation/css/normalize.css') +
+            include_css % static('foundation/css/foundation.css'))
+
+
+@register.simple_tag
+def foundation_js():
+    return (include_js % static('foundation/js/foundation.js') +
+           '<script>$(document).foundation();</script>')
 
 
 @register.simple_tag
@@ -56,24 +65,3 @@ def foundation_form_hiddens(form):
     for hidden in form.hidden_fields():
         html.append(str(hidden))
     return ''.join(html)
-
-
-@register.simple_tag
-def foundation_js():
-    return '<script src="%s"></script>' % static('foundation/js/foundation.min.js') + \
-           '<script>$(document).foundation();</script>'
-
-
-@register.simple_tag
-def foundation_js_jquery():
-    return '<script src="%s"></script>' % static('foundation/js/vendor/jquery.js')
-
-
-@register.simple_tag
-def foundation_js_modernizr():
-    return '<script src="%s"></script>' % static('foundation/js/vendor/modernizr.js')
-
-
-@register.simple_tag
-def foundation_viewport():
-    return '<meta name="viewport" contenet="width=device-width, initial-scale=1.0">'

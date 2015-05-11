@@ -13,7 +13,10 @@ setup(
     version=version,
     packages=find_packages(),
 
-    install_requires=['Django>=1.8,<1.9'],
+    install_requires=[
+        'Django>=1.8,<1.9',
+        'django-bower',
+    ],
 
     author='Eduardo Augusto Klosowski',
     author_email='eduardo_klosowski@yahoo.com',

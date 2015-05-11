@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 {% load foundation %}
+{% load jquery %}
+{% load modernizr %}
 {% load staticfiles %}
 <html>
   <head>
@@ -7,18 +9,17 @@
     <meta charset="utf-8">
     {% foundation_viewport %}
     {% block css %}
-      {% foundation_css_normalize %}
       {% foundation_css %}
     {% endblock %}
     {% block js-header %}
-      {% foundation_js_modernizr %}
+      {% modernizr %}
     {% endblock %}
     {% block header-ext %}{% endblock %}
   </head>
   <body>
     {% block body %}{% endblock %}
     {% block js %}
-      {% foundation_js_jquery %}
+      {% jquery %}
       {% foundation_js %}
     {% endblock %}
   </body>

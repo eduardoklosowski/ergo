@@ -6,6 +6,8 @@ dist/
 *.egg-info/
 *.egg
 
+/components/
 /db.sqlite3
 /ergo/settings/dev.py
 /media/
+/node_modules/
