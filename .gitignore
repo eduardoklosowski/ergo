@@ -4,3 +4,8 @@ __pycache__/
 
 # virtualenv
 /env
+
+# Run in Dev
+/db.sqlite3
+/media
+/static
