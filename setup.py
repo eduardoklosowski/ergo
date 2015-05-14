@@ -15,6 +15,7 @@ setup(
 
     install_requires=[
         'Django>=1.8,<1.9',
+        'django-bower',
     ],
 
     extras_require={

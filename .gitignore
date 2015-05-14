@@ -10,8 +10,10 @@ __pycache__/
 
 # virtualenv
 /env
+/node_modules
 
 # Run in Dev
+/components
 /db.sqlite3
 /media
 /static

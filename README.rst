@@ -1,6 +1,7 @@
 Ergo
 ====
 
+.. _Bower: http://bower.io/
 .. _Django: https://www.djangoproject.com/
 .. _Python: https://www.python.org/
 
@@ -10,6 +11,7 @@ Este é o core do projeto Ergo.
 Requisitos
 ----------
 
+- Bower_
 - Python_ 2.7 ou 3
 - Django_ 1.8
 
