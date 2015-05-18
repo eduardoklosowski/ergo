@@ -27,6 +27,10 @@ USE_TZ = True
 
 LANGUAGE_CODE = 'pt-br'
 
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'
+LOGOUT_URL = '/logout/'
+
 
 INSTALLED_APPS = (
     'django.contrib.admin',

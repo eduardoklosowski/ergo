@@ -1,0 +1,26 @@
+{% extends 'ergo/base.html' %}
+{% load foundation %}
+
+
+{% block title %}{{ block.super }} - Entrar{% endblock %}
+
+
+{% block content %}
+  <section class="content" role="application">
+    <form method="post">
+      {% csrf_token %}
+      {% foundation_form_hiddens form %}
+      {% foundation_form_errors form %}
+      <div class="row">
+        <div class="small-12 columns">{% foundation_form_field form.username %}</div>
+        <div class="small-12 columns">{% foundation_form_field form.password %}</div>
+      </div>
+
+      <div class="row">
+        <div class="small-12 columns text-right">
+          <button type="submit">Entrar</button>
+        </div>
+      </div>
+    </form>
+  </section>
+{% endblock %}

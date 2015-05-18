@@ -23,10 +23,13 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.auth import views as authviews
 
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^login/', authviews.login, {'template_name': 'ergo/login.html'}, name='login'),
+    url(r'^logout/', authviews.logout_then_login, name='logout'),
 ] + [
     url(r'^%s/' % app.ergo_url, include(app.name + '.urls'))
     for app in apps.get_app_configs() if hasattr(app, 'ergo_url')
