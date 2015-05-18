@@ -55,6 +55,18 @@
         </div>
       {% endblock %}
 
+      {% block messages %}
+        {% if messages %}
+          <section class="row" role="alert">
+            <div class="small-12 columns">
+              {% for message in messages %}
+                <div class="alert-box info" data-alert>{{ message }}<a class="close fi-x"></a></div>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+      {% endblock %}
+
       {% block content %}{% endblock %}
     {% endblock %}
 
