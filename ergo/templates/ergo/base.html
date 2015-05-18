@@ -28,6 +28,33 @@
   </head>
   <body>
     {% block body %}
+      {% block menu %}
+        <div class="fixed">
+          <nav class="top-bar" data-topbar role="navigation" data-options="back_text:Voltar">
+            <ul class="title-area">
+              <li class="name"><h1><a href="#">Ergo</a></h1></li>
+              <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+            </ul>
+            <section class="top-bar-section">
+              {% block top-bar-right %}
+                <ul class="right">
+                  <li class="divider"></li>
+                  <li class="has-dropdown">
+                    <a href="#">{{ user.get_full_name|default:user.username }}</a>
+                    <ul class="dropdown">
+                      {% if user.is_staff %}<li><a href="{% url 'admin:index' %}" target="_blank">Administrador</a></li>{% endif %}
+                      <li><a href="{% url 'logout' %}">Sair</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              {% endblock %}
+
+              {% block top-bar-left %}{% endblock %}
+            </section>
+          </nav>
+        </div>
+      {% endblock %}
+
       {% block content %}{% endblock %}
     {% endblock %}
 
