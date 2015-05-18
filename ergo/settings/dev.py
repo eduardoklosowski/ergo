@@ -32,6 +32,14 @@ ALLOWED_HOSTS = []
 
 TIME_ZONE = 'UTC'
 
+try:
+    import debug_toolbar  # NOQA
+    INSTALLED_APPS += (
+        'debug_toolbar',
+    )
+except ImportError:
+    pass
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
