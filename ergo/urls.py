@@ -18,6 +18,7 @@
 # along with Ergo.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+from django.apps import apps
 from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
@@ -26,6 +27,9 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+] + [
+    url(r'^%s/' % app.ergo_url, include(app.name + '.urls'))
+    for app in apps.get_app_configs() if hasattr(app, 'ergo_url')
 ]
 
 if settings.DEBUG:
