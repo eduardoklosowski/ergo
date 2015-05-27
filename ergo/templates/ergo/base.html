@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load compress %}
+{% load ergo %}
 {% load staticfiles %}
 <html>
   <head>
@@ -21,7 +22,9 @@
       {% endcompress %}
     {% endblock %}
 
-    {% block head-ext %}{% endblock %}
+    {% block head-ext %}
+      {% ergo_favicon %}
+    {% endblock %}
   </head>
   <body>
     {% block body %}
