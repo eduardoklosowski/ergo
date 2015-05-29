@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'djangobower',
     'compressor',
     'ergo',
+    'ergo.home',
 )
 
 BOWER_INSTALLED_APPS = (
