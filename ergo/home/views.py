@@ -19,3 +19,24 @@
 #
 
 from __future__ import unicode_literals
+
+from django.apps import apps
+from django.views import generic
+
+from ..views import LoginRequiredMixin
+
+
+class NotifyListView(LoginRequiredMixin, generic.TemplateView):
+    template_name = 'ergohome/notify_list.html'
+
+    def get_context_data(self, **kwargs):
+        ergo_apps = [app for app in apps.get_app_configs() if hasattr(app, 'ergo_notify')]
+        ergo_apps.sort(key=lambda x: x.verbose_name)
+        notify_list = []
+        for app in ergo_apps:
+            for notify in app.ergo_notify(self.request):
+                notify_list.append(notify)
+
+        context = super(NotifyListView, self).get_context_data(**kwargs)
+        context['notify_list'] = notify_list
+        return context

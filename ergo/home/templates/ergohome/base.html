@@ -1,4 +1,13 @@
 {% extends 'ergo/base.html' %}
+{% load compress %}
+{% load staticfiles %}
 
 
 {% block title %}{{ block.super }} Home{% endblock %}
+
+{% block css %}
+  {{ block.super }}
+  {% compress css %}
+    <link rel="stylesheet" href="{% static 'ergohome/ergohome.css' %}">
+  {% endcompress %}
+{% endblock %}

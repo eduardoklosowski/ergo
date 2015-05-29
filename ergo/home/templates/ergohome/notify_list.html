@@ -1,0 +1,20 @@
+{% extends 'ergohome/base.html' %}
+
+
+{% block content %}
+<section class="content" role="application">
+  <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
+    {% for notify in notify_list %}
+      <li>
+        <ul class="app-notify">
+          <li>
+            <a href="{{ notify.url }}">{{ notify.title }}</a>
+            {% if notify.count != None %}<small class="label round right">{{ notify.count }}</small>{% endif %}
+          </li>
+          {% if notify.text %}<li>{{ notify.text }}</li>{% endif %}
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

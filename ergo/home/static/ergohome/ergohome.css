@@ -1,0 +1,18 @@
+.app-notify {
+  background-color: #e0e0e0;
+  margin-left: 0;
+}
+
+.app-notify > li {
+  max-height: 15rem;
+  padding: 0.25rem;
+  overflow: auto;
+}
+
+.app-notify > li:first-child {
+  background-color: #333333;
+}
+
+.app-notify > li:first-child a {
+  color: #ffffff;
+}

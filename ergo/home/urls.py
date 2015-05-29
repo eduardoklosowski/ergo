@@ -24,6 +24,7 @@ from . import views
 
 
 url_list = [
+    url(r'^notify/$', views.NotifyListView.as_view(), name='notify_list'),
 ]
 
 urlpatterns = [
