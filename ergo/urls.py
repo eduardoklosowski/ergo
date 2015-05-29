@@ -25,8 +25,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth import views as authviews
 
+from . import views
+
 
 urlpatterns = [
+    url(r'^$', views.IndexView.as_view(), name='index'),
+
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login/', authviews.login, {'template_name': 'ergo/login.html'}, name='login'),
     url(r'^logout/', authviews.logout_then_login, name='logout'),

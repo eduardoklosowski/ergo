@@ -21,6 +21,8 @@
 from __future__ import unicode_literals
 
 from django.contrib.auth.decorators import login_required, permission_required
+from django.core.urlresolvers import reverse_lazy
+from django.views import generic
 
 
 class LoginRequiredMixin(object):
@@ -35,3 +37,8 @@ class PermissionRequiredMixin(object):
     def as_view(cls, **initkwargs):
         view = super(PermissionRequiredMixin, cls).as_view(**initkwargs)
         return permission_required(cls.permission)(view)
+
+
+class IndexView(LoginRequiredMixin, generic.RedirectView):
+    permanent = False
+    url = reverse_lazy('ergohome:index')
