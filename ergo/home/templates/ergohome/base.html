@@ -1,5 +1,6 @@
 {% extends 'ergo/base.html' %}
 {% load compress %}
+{% load ergohome %}
 {% load staticfiles %}
 
 
@@ -10,4 +11,17 @@
   {% compress css %}
     <link rel="stylesheet" href="{% static 'ergohome/ergohome.css' %}">
   {% endcompress %}
+{% endblock %}
+
+{% block top-bar-left %}
+  <ul class="left">
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Aplicativos</a>
+      <ul class="dropdown">
+        {% ergohome_nav_applications %}
+      </ul>
+    </li>
+    <li class="divider"></li>
+  </ul>
 {% endblock %}
