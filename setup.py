@@ -17,6 +17,10 @@ setup(
         'Django>=1.8,<1.9',
     ],
 
+    extras_require={
+        'prod-static': ['dj-static'],
+    },
+
     author='Eduardo Augusto Klosowski',
     author_email='eduardo_klosowski@yahoo.com',
 

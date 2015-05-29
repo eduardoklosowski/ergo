@@ -45,6 +45,20 @@ def initconfig():
         shutil.copy(os.path.join(BASE_DIR, 'settings', 'manage.py'), 'manage.py')
         print('OK')
 
+    print('Criando wsgistatic.py... ', end='')
+    if os.path.exists('wsgistatic.py'):
+        print('já existe')
+    else:
+        with open('wsgistatic.py', 'w') as fp:
+            fp.write('''import os
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
+
+from ergo.wsgi import application as app
+from dj_static import Cling, MediaCling
+
+application = Cling(MediaCling(app))''')
+        print('OK')
+
 
 # Parser
 
