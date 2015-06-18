@@ -16,6 +16,7 @@ setup(
     install_requires=[
         'Django>=1.8,<1.9',
         'django-bower',
+        'django_compressor',
     ],
 
     extras_require={
