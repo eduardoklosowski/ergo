@@ -24,6 +24,8 @@ from . import views
 
 
 url_list = [
+    url(r'^$', views.IndexView.as_view(), name='index'),
+
     url(r'^notify/$', views.NotifyListView.as_view(), name='notify_list'),
 ]
 

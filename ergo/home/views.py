@@ -21,9 +21,15 @@
 from __future__ import unicode_literals
 
 from django.apps import apps
+from django.core.urlresolvers import reverse_lazy
 from django.views import generic
 
 from ..views import LoginRequiredMixin
+
+
+class IndexView(LoginRequiredMixin, generic.RedirectView):
+    permanent = False
+    url = reverse_lazy('ergohome:notify_list')
 
 
 class NotifyListView(LoginRequiredMixin, generic.TemplateView):
