@@ -18,6 +18,9 @@
 # along with Ergo.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+from django.conf import global_settings
+
+
 ROOT_URLCONF = 'ergo.urls'
 WSGI_APPLICATION = 'ergo.wsgi.application'
 
@@ -79,9 +82,7 @@ TEMPLATES = [
     },
 ]
 
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+STATICFILES_FINDERS = global_settings.STATICFILES_FINDERS + (
     'djangobower.finders.BowerFinder',
     'compressor.finders.CompressorFinder',
 )
