@@ -18,7 +18,7 @@
 
     {% block head-js %}
       {% compress js %}
-        <script src="{% static 'modernizr/modernizr.js' %}"></script>
+        <script src="{% static 'foundation/js/vendor/modernizr.js' %}"></script>
       {% endcompress %}
     {% endblock %}
 
@@ -72,7 +72,7 @@
 
     {% block js %}
       {% compress js %}
-        <script src="{% static 'jquery/dist/jquery.js' %}"></script>
+        <script src="{% static 'foundation/js/vendor/jquery.js' %}"></script>
         <script src="{% static 'foundation/js/foundation.js' %}"></script>
         <script>$(document).foundation();</script>
       {% endcompress %}

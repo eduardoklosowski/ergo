@@ -51,8 +51,6 @@ INSTALLED_APPS = (
 BOWER_INSTALLED_APPS = (
     'foundation',
     'foundation-icon-fonts',
-    'jquery',
-    'modernizr',
 )
 
 MIDDLEWARE_CLASSES = (
